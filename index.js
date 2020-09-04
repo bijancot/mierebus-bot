@@ -1,11 +1,11 @@
 const qrcode = require('qrcode-terminal');
 const http = require('http');
-//var express_1 = __importDefault(require("express"));
 const app = require('express');
 var apo = app();
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
-var port = 3000;
+const port = 3000;
+const number = [62895326927698,6285238909939];
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
@@ -20,11 +20,14 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	if(message.body === '!ping') {
-		client.sendMessage(message.from, 'pong');
+	if(message.body === 'Halo'||message.body === 'halo') {
+		client.sendMessage(message.from, 'Halo kamuuu, terimakasih');
 		console.log(message.from);
-	}else{
-      message.reply('hai! kunjungi\n https://tjireng.my.id/');
+	}if(message.body === 'selesai'||message.body === 'selesai'){
+		client.sendMessage(message.from, 'okk');
+	}
+	else{
+      message.reply('n ikan');
     }
 
 });
@@ -35,14 +38,28 @@ apo.get('/sendbynum', function (req, res) {
     client.sendMessage(no,haha);
 });
 
-apo.get('sendbatch', function (req, res){
+apo.get('/sendbatch', function (req, res){
     var urlberita = req.query.urlBerita;
+    var header = "halo! jangan lupa kunjungi :\n";
+    var konten = urlberita;
+    var footer = "\nterimakasih!\n*mierebus-bot*\n\nNgobrol Yuk! ketik *halo* untuk memulai percakapan";
+    var chat = header+konten+footer;
     //api tobe here
-    //looping api
+    //looping ap
+for (i = 0; i < number.length; i++) {
+	if(i<number.length){
+	console.log(i);
+	console.log(number.length);
+	var newnumber = number[i]+'@c.us';
+	client.sendMessage(newnumber, chat);
+	}if(i==(number.length-1)){
+	res.end();
+	}
+  }
 });
 
 client.initialize();
 
 apo.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
-})
+});
