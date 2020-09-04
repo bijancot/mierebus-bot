@@ -1,6 +1,12 @@
+//import { menu } from './menu/awal.js'
+//const menuAwal = menu();
+//var fs = require('fs');
+//var menuku = eval(fs.readFileSync('./menu/awal.js')+'');
+require('./menu/awal.js')();
 const qrcode = require('qrcode-terminal');
 const http = require('http');
 const app = require('express');
+//import { menu } from './menu/awal.js'
 var apo = app();
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
@@ -20,14 +26,12 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	if(message.body === 'Halo'||message.body === 'halo') {
-		client.sendMessage(message.from, 'Halo kamuuu, terimakasih');
-		console.log(message.from);
-	}if(message.body === 'selesai'||message.body === 'selesai'){
+	if(message.body === 'Halo' ||message.body === 'halo') {
+		message.reply(menu());
+	}else if(message.body === 'selesai'||message.body === 'selesai'){
 		client.sendMessage(message.from, 'okk');
-	}
-	else{
-      message.reply('n ikan');
+	}else{
+      message.reply('menu yang ada : Halo');
     }
 
 });
