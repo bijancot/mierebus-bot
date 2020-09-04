@@ -13,21 +13,11 @@ client.on('qr', qr => {
 
 client.on('ready', () => {
     console.log('Client is ready!');
-    client.sendMessage('62895326927698@c.us','pong');
-    client.sendMessage('6282334059230@c.us','pong');
 });
 
 client.on('message', message => {
     console.log(message.body);
 });
-
-//client.on('message', message => {
-//    if(message.body === '!ping') {
-//      message.reply('pong');
-//    }else{
-//      message.reply('hai! kunjungi\n https://tjireng.my.id/');
-//    }
-//});
 
 client.on('message', message => {
 	if(message.body === '!ping') {
@@ -38,15 +28,21 @@ client.on('message', message => {
     }
 
 });
-apo.get('/send', function (req, res) {
-    //res.sendFile('/media/budosen/1b6c4b7b-c7f7-423f-8b12-9783acdaf266/Me/work/PKL/chatbot/pages/asd.html');
-    client.sendMessage('62895326927698@c.us','pong');
-    client.sendMessage('6282334059230@c.us','pong');
+apo.get('/sendbynum', function (req, res) {
+    var haha = req.query.haha;
+    var no = req.query.no+'@c.us';
+    console.log(no);
+    client.sendMessage(no,haha);
+});
+
+apo.get('sendbatch', function (req, res){
+    var urlberita = req.query.urlBerita;
+    //api tobe here
+    //looping api
 });
 
 client.initialize();
 
-//http.listen(3000, function () { return 200});
 apo.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
