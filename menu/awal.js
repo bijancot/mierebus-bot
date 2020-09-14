@@ -3,13 +3,16 @@ const client = new Client();
 module.exports = function() {
  this.menu = function() { //Menu Utama
     return 'Halo selamat datang! ini menu kami\n1. Kerjasama'
-    }; 
+    };
+
  this.kerjasama = function() {
-   return client.on('message', message => {
+   client.on('message', message => {
    message.reply(pasangIklan());
    this.kkee();
    });
-    }; //Menu
+    }; 
+    
+    //Menu
  this.kkee = function(){
    client.on('message', messageb => {
       if(messageb.body === "punya" || messageb.body === "Punya"){
@@ -19,6 +22,7 @@ module.exports = function() {
       }
   });
  };
+
  this.pasangIklan = function() {
     return 'Apakah anda telah memiliki materi konten berupa gambar dan text.\n1.Punya \n2. Tidak punya'
     }; //Submenu
@@ -64,4 +68,5 @@ this.cariBerita = function(){
 
 
 }
+return module.exports;
  
