@@ -17,29 +17,36 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    console.log(message.body);
-});
-
-client.on('message', message => {
-
-    if(message.body === 'Kerjasama' ||message.body === 'kerjasama'){
-                    message.reply(kerjasama());
-                    
-                } else if(message.body === 'Pasang iklan' ||message.body === 'pasang iklan'){
-                    message.reply(pasangiklan());
-                } else if(message.body === 'Media partner' ||message.body === 'media partner'){
-                    message.reply(mediapartner());
-                } else if(message.body === 'Publikasi' ||message.body === 'publikasi'){
-                    message.reply(publikasi());
-                } else if (message.body === 'selesai'||message.body === 'selesai'){
-                    client.sendMessage(message.from, 'okk');
+        
+        if(message.body === "kerjasama" || message.body === "Kerjasama"){
+            message.reply(pasangIklan());
+            client.on('message', messageb => {
+                if(messageb.body === "punya" || messageb.body === "Punya"){
+                    messageb.reply("ok");
+                }else{
+                    messageb.reply("cupu luh");
                 }
-                else{
-                    var content = "hmm mungkin masksud kamu :\n"+menu();
-                    message.reply(content);
-                }
-             
-            
+            });
+        }
+
+        // kerjasama();
+
+        // case "pasang iklan" :
+        //     message.reply(pasangiklan());
+        // break;
+
+        // case "media partner" :
+        //     message.reply(mediapartner());
+        // break;
+
+        // case "publikasi" :
+        //     message.reply(publikasi());
+        // break;
+
+        // default :
+        // var content = "hmm mungkin masksud kamu :\n"+menu();
+        // message.reply(content);
+        // break;
         });
 
 apo.get('/sendbynum', function (req, res) {
