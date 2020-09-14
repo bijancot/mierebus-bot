@@ -26,15 +26,57 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	if(message.body === 'Halo' ||message.body === 'halo') {
-		message.reply(menu());
-	}else if(message.body === 'selesai'||message.body === 'selesai'){
-		client.sendMessage(message.from, 'okk');
-	}else{
-      message.reply('menu yang ada : Halo');
-    }
+    // if(message.body === 'Halo' ||message.body === 'halo'){
+    //     message.reply(menu());
+    // if(message.body === 'Halo' ||message.body === 'halo'){
+    //     message.reply(menu());
 
-});
+    // }
+    if(message.body === 'Kerjasama' ||message.body === 'kerjasama'){
+                    message.reply(kerjasama());
+                    
+                } else if(message.body === 'Pasang iklan' ||message.body === 'pasang iklan'){
+                    message.reply(pasangiklan());
+                } else if(message.body === 'Media partner' ||message.body === 'media partner'){
+                    message.reply(mediapartner());
+                } else if(message.body === 'Publikasi' ||message.body === 'publikasi'){
+                    message.reply(publikasi());
+                } else if (message.body === 'selesai'||message.body === 'selesai'){
+                    client.sendMessage(message.from, 'okk');
+                }
+                else{
+                    var content = "hmm mungkin masksud kamu :\n"+menu();
+                    message.reply(content);
+                    // message.end;
+                }
+             
+            
+        });
+//         
+
+//         message.reply(menu());
+//         if(message.body === 'Kerjasama' ||message.body === 'kerjasama'){
+//             message.reply(kerjasama());
+//                 switch(message.reply(kerjasama())){
+//                     case 1:
+//                         message.reply(pasangiklan());
+//                         break;
+//                     case 2:
+//                         message.reply(mediapartner());
+//                         break;
+//                     case 3:
+//                         message.reply(mediapartner());
+//                         break;
+//                     default:
+//                         message.reply('menu yang ada : hehhe');
+//                         break;
+
+//                 } 
+//         }
+//     }
+// });
+
+
 apo.get('/sendbynum', function (req, res) {
     var haha = req.query.haha;
     var no = req.query.no+'@c.us';
