@@ -11,7 +11,7 @@ var apo = app();
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
 const port = 3000;
-const number = [62895326927698,6285238909939];
+const number = [62895326927698,6285238909939,6281231285592];
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
@@ -78,10 +78,11 @@ client.on('message', message => {
 
 
 apo.get('/sendbynum', function (req, res) {
-    var haha = req.query.haha;
+    var haha = req.query.body;
     var no = req.query.no+'@c.us';
     console.log(no);
     client.sendMessage(no,haha);
+    res.end();
 });
 
 apo.get('/sendbatch', function (req, res){
