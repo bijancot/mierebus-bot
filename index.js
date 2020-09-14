@@ -1,12 +1,7 @@
-//import { menu } from './menu/awal.js'
-//const menuAwal = menu();
-//var fs = require('fs');
-//var menuku = eval(fs.readFileSync('./menu/awal.js')+'');
 require('./menu/awal.js')();
 const qrcode = require('qrcode-terminal');
 const http = require('http');
 const app = require('express');
-//import { menu } from './menu/awal.js'
 var apo = app();
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
@@ -26,12 +21,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    // if(message.body === 'Halo' ||message.body === 'halo'){
-    //     message.reply(menu());
-    // if(message.body === 'Halo' ||message.body === 'halo'){
-    //     message.reply(menu());
 
-    // }
     if(message.body === 'Kerjasama' ||message.body === 'kerjasama'){
                     message.reply(kerjasama());
                     
@@ -47,35 +37,10 @@ client.on('message', message => {
                 else{
                     var content = "hmm mungkin masksud kamu :\n"+menu();
                     message.reply(content);
-                    // message.end;
                 }
              
             
         });
-//         
-
-//         message.reply(menu());
-//         if(message.body === 'Kerjasama' ||message.body === 'kerjasama'){
-//             message.reply(kerjasama());
-//                 switch(message.reply(kerjasama())){
-//                     case 1:
-//                         message.reply(pasangiklan());
-//                         break;
-//                     case 2:
-//                         message.reply(mediapartner());
-//                         break;
-//                     case 3:
-//                         message.reply(mediapartner());
-//                         break;
-//                     default:
-//                         message.reply('menu yang ada : hehhe');
-//                         break;
-
-//                 } 
-//         }
-//     }
-// });
-
 
 apo.get('/sendbynum', function (req, res) {
     var haha = req.query.body;
@@ -87,12 +52,11 @@ apo.get('/sendbynum', function (req, res) {
 
 apo.get('/sendbatch', function (req, res){
     var urlberita = req.query.urlBerita;
-    var header = "halo! jangan lupa kunjungi :\n";
+    var header = header();
     var konten = urlberita;
-    var footer = "\nterimakasih!\n*mierebus-bot*\n\nNgobrol Yuk! ketik *halo* untuk memulai percakapan";
+    var footer = footerDefault();
     var chat = header+konten+footer;
-    //api tobe here
-    //looping ap
+
 for (i = 0; i < number.length; i++) {
 	if(i<number.length){
 	console.log(i);

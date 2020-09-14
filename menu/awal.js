@@ -19,16 +19,35 @@ module.exports = function() {
     };
 
  // isi sub menu
- this.punyakonten = function(){
+ this.punyaKonten = function(){
     return 'Apakah anda ingin melihat list harga? \n1. Iya \nTidak'
  };
- this.Tidakpunyakonten = function(){
+ this.tidakPunyaKonten = function(){
     return 'Hai, untuk melakukan proses kerjasama iklan silahkan menghubungi kontak dibawah ini.\n Salam hangat TIMES Indonesia :)'
  };
-
- this.skmediapartner = function(){
+ this.skMediaPartner = function(){
      return 'Apabila kamu telah menyetujui syarat dan ketentuan menjadi media partner di TIMES Indonesia kamu boleh langsung membawa proposal nya ke kantor kami ya.\n Terima kasih :)'
  };
+
+ // Permintaan Berita
+ this.beritaTerbaru = function(){
+   // List 10 Berita Terbaru dari TimesIndonesia
+ };
+
+this.cariBerita = function(){
+   // List 10 Berita berdasarkan kata kunci
+ };
+
+ //Struktur Chat
+
+ this.header = function(){
+   return "halo! jangan lupa kunjungi :\n";
+ };
+
+ this.footerDefault = function(){
+   return "\nterimakasih!\n*mierebus-bot*\n\nNgobrol Yuk! ketik *halo* untuk memulai percakapan";
+ };
+
 
 }
  
