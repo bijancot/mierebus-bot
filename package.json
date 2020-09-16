@@ -5,15 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
-<<<<<<< Updated upstream
-    "http": "0.0.1-security",
-    "mysql": "^2.18.1",
-    "qrcode-terminal": "^0.12.0",
-=======
->>>>>>> Stashed changes
     "http": "^0.0.1-security",
+    "mysql": "^2.18.1",
+    "node-gyp": "^7.1.0",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.8.1"
+    "rebuild": "^0.1.2",
+    "whatsapp-web.js": "^1.8.1",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {},
   "scripts": {
