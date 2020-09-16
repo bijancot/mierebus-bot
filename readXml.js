@@ -1,7 +1,8 @@
+const { Client } = require('whatsapp-web.js');
 const http = require('https');
 const xml2js =  require('xml2js');
+const client = new Client();
 const parser = new xml2js.Parser({explicitArray:false, mergeAttrs : false});
-
 
 let req = http.get("https://www.timesindonesia.co.id/feed/all", function(res) {
     let data = '';
@@ -25,4 +26,3 @@ let req = http.get("https://www.timesindonesia.co.id/feed/all", function(res) {
         });
     });
 });
-};
