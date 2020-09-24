@@ -1,19 +1,15 @@
-const http = require('https');
-const xml2js =  require('xml2js');
-const parser = new xml2js.Parser({explicitArray:false, mergeAttrs : false});
-var haha = '';
-var hehe;
-var hasul = '';
-var hasillain;
-var berita = '';
-var asd = '';
+let Parser = require('rss-parser');
+let parser = new Parser();
+var isi;
+(async () => {
 
-// module.exports = function() {
-//     this.getBerita = function(){
-http.get("https://www.timesindonesia.co.id/feed/all",callback);
-console.log(callback);
-// console.log(berita);
-// return huhu();
-//     }
-//  };
-// return module.exports;
+  let feed = await parser.parseURL('https://www.timesindonesia.co.id/feed/all');
+  // console.log(feed.title);
+
+  feed.items.forEach(item => {
+    isi = item.title + ':' + item.link;
+  });
+
+})();
+
+console.log(isi);

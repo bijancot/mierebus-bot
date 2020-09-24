@@ -1,5 +1,3 @@
-require('./readXml.js')();
-let berita = getBerita();
 
 module.exports = function() {
 
@@ -46,6 +44,14 @@ this.cariBerita = function(){
 
  this.header = function(){
    return "halo! jangan lupa kunjungi :\n";
+ };
+
+ this.headerBeritaTerbaru = function(){
+   return "Dari kami khusus untuk kamu, ini 10 berita terbaru hari ini :\n";
+ };
+
+ this.footerBeritaTerbaru = function(){
+   return "\nMau tau lebih banyak? yuk kunjungi timesindonesia.co.id";
  };
 
  this.footerDefault = function(){
