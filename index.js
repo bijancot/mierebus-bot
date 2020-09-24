@@ -6,7 +6,11 @@ var apo = app();
 const { Client } = require('whatsapp-web.js');
 const client = new Client();
 const port = 3000;
+const https = require('https');
+const xml2js =  require('xml2js');
+const parser = new xml2js.Parser({explicitArray:false, mergeAttrs : false});
 const number = [62895326927698,6285238909939,6281231285592];
+var hehe;
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
@@ -19,7 +23,34 @@ client.on('ready', () => {
 client.on('message', message => {
         
         if(message.body === '!beritaterbaru'){
-            message.reply(beritaTerbaru());
+            let req = https.get("https://www.timesindonesia.co.id/feed/all", function(res) {
+                let data = '';
+                let asd = '';
+
+                res.on('data', function(stream) {
+                    data += stream;
+                asd = data.item;
+                });
+
+                res.on('end', function(){
+                    parser.parseString(data, function(error, result) {
+                        if(error === null) {     
+                    var i=0;
+                    var hasillain='';
+                    for(i=0;i<10;i++){
+                    hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
+                    }
+                    header = headerBeritaTerbaru();
+                    footer = footerBeritaTerbaru()+footerDefault();
+                    isichat = header+hasillain+footer;
+                    message.reply(isichat);
+                        }
+                        else {
+                            console.table(error);
+                        }
+                    });
+                });
+            });
         }
 
         // kerjasama();
