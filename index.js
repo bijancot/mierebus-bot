@@ -22,7 +22,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
         
-        if(message.body === '!beritaterbaru'){
+        if(message.body === 'berita terbaru' || message.body === 'Berita terbaru'){
             let req = https.get("https://www.timesindonesia.co.id/feed/all", function(res) {
                 let data = '';
                 let asd = '';
@@ -35,15 +35,17 @@ client.on('message', message => {
                 res.on('end', function(){
                     parser.parseString(data, function(error, result) {
                         if(error === null) {     
-                    var i=0;
-                    var hasillain='';
-                    for(i=0;i<10;i++){
-                    hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
-                    }
-                    header = headerBeritaTerbaru();
-                    footer = footerBeritaTerbaru()+footerDefault();
-                    isichat = header+hasillain+footer;
-                    message.reply(isichat);
+
+                        var i=0;
+                        var hasillain='';
+                        for(i=0;i<10;i++){
+                            hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
+                        }
+                            headerB = headerBeritaTerbaru();
+                            footer = footerBeritaTerbaru();
+                            isichat = headerB+hasillain+footer;
+                            message.reply(isichat);
+
                         }
                         else {
                             console.table(error);
@@ -51,7 +53,42 @@ client.on('message', message => {
                     });
                 });
             });
+        } if(message.body === 'halo' || message.body === 'Halo'){
+            balas = header()+'\n'+menu()+'\n\n'+footerDefault();
+            message.reply(balas);
+
+        } if(message.body === 'kerjasama' || message.body === 'Kerjasama'){
+            pesanKerjasama = kerjasama()+'\n'+footer();
+            message.reply(pesanKerjasama);
+
+        } if(message.body === 'pasang iklan' || message.body === 'Pasang iklan'){
+            pesanPasangIklan = pasangIklan() +'\n\n'+footer();
+            message.reply(pesanPasangIklan);
+
+        } if(message.body === 'Iya' || message.body === 'iya'){
+            punyaK = punyaKonten()+'\n'+footer();
+            message.reply(punyaK);
+
+        } if(message.body === 'Tidak' || message.body === 'tidak'){
+            cp = 0341563566;
+            punyaK = tidakPunyaKonten()+'\n'+cp+'\n\n'+footerDefault();
+            message.reply(punyaK);
+
+        } if(message.body === 'Media partner' || message.body === 'media partner'){
+            isi = 'file sknya di taro sini'
+            mediaP = mediaPartner()+'\n'+isi+'\n\n'+skMediaPartner()+'\n\n'+footer();
+            message.reply(mediaP);
+
+        } if(message.body === 'publikasi' || message.body === 'Publikasi'){
+            pb = publikasi()+'\n\n'+footer();
+            message.reply(pb);
+
+        } else{
+            message.reply('aku ga ngerti, ajarin dong');
         }
+
+
+
 
         // kerjasama();
 
@@ -71,7 +108,7 @@ client.on('message', message => {
         // var content = "hmm mungkin masksud kamu :\n"+menu();
         // message.reply(content);
         // break;
-        });
+        }); 
 
 apo.get('/sendbynum', function (req, res) {
     var haha = req.query.body;
