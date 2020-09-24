@@ -1,31 +1,11 @@
-const { Client } = require('whatsapp-web.js');
 require('./readXml.js')();
-const client = new Client();
+let berita = getBerita();
 
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
     return 'Halo selamat datang! ini menu kami\n1. Kerjasama'
 };
-
- this.kerjasama = function() {
-   client.on('message', message => {
-      message.reply(pasangIklan());
-      this.kkee();
-      });
-   }; 
-    
-    //Menu
- this.kkee = function(){
-   client.on('message', messageb => {
-      if(messageb.body === "punya" || messageb.body === "Punya"){
-          messageb.reply("ok");
-      }else{
-          messageb.reply("cupu luh");
-      }
-  });
- };
-
  this.pasangIklan = function() {
     return 'Apakah anda telah memiliki materi konten berupa gambar dan text.\n1.Punya \n2. Tidak punya'
     }; //Submenu
@@ -52,11 +32,10 @@ this.menu = function() { //Menu Utama
 
  // Permintaan Berita
  this.beritaTerbaru = function(){
-   // List 10 Berita Terbaru dari TimesIndonesia
-   client.on('message', message => {
-      message.reply(beritaUtama);
-      this.kkee();
-      });
+      // berita = getBerita();
+      // console.log(berita);
+      // console.log(getBerita());
+      return berita;
  };
 
 this.cariBerita = function(){

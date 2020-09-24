@@ -18,18 +18,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
         
-        if(message.body === "kerjasama" || message.body === "Kerjasama"){
-            message.reply(pasangIklan());
-            client.on('message', messageb => {
-                if(messageb.body === "punya" || messageb.body === "Punya"){
-                    messageb.reply("ok");
-                    client.end;
-                }else{
-                    messageb.reply("cupu luh");
-                    client.end;
-                }
-                
-            });
+        if(message.body === '!beritaterbaru'){
+            message.reply(beritaTerbaru());
         }
 
         // kerjasama();
