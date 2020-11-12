@@ -1,6 +1,7 @@
 require('./menu/functionMenu.js')();
 const qrcode = require('qrcode-terminal');
 const http = require('http');
+var mysql = require('mysql');
 const app = require('express');
 var apo = app();
 const { Client } = require('whatsapp-web.js');
@@ -11,6 +12,53 @@ const xml2js =  require('xml2js');
 const parser = new xml2js.Parser({explicitArray:false, mergeAttrs : false});
 const number = [62895326927698,6285238909939,6281231285592];
 var hehe;
+
+var con;
+
+
+//   function connectDb() {
+//     con = mysql.createConnection({
+//         host: "diwangkara.dev",
+//         user: "admin_pkl",
+//         password: "1sampaipkl",
+//         database: "admin_pkl"
+//       });
+//     con.on('error', connectDb()); // probably worth adding timeout / throttle / etc
+//   }
+
+//   connectDb();
+
+  var db_config = {
+    host: "diwangkara.dev",
+        user: "admin_pkl",
+        password: "1sampaipkl",
+        database: "admin_pkl"
+  };
+  
+  var con;
+  
+  function handleDisconnect() {
+    con = mysql.createConnection(db_config); // Recreate the connection, since
+                                                    // the old one cannot be reused.
+  
+    con.connect(function(err) {              // The server is either down
+      if(err) {                                     // or restarting (takes a while sometimes).
+        console.log('error when connecting to db:', err);
+        setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+      }                                     // to avoid a hot loop, and to allow our node script to
+    });                                     // process asynchronous requests in the meantime.
+                                            // If you're also serving http, display a 503 error.
+    con.on('error', function(err) {
+    //   console.log('db error', err);
+      if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+        handleDisconnect();                         // lost due to either server restart, or a
+      } else {                                      // connnection idle timeout (the wait_timeout
+        throw err;                                  // server variable configures this)
+      }
+    });
+  }
+  
+  handleDisconnect();
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
@@ -96,7 +144,40 @@ client.on('message', message => {
             pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footer();
             message.reply(pb);
 
-        } 
+        } if(message.body.includes("REG")){
+            // console.log(message.body);
+            var pendaftaran = message.body;
+            var reso = pendaftaran.split("#");
+            reso.shift();
+            // console.log(reso);
+            reso.push('1');
+
+            con.connect(function(err) {
+                // if (err) throw err;
+                console.log("Connected!");
+                var sql = "INSERT INTO pelanggan (nama_pelanggan, notelp, email, status) VALUES (?)";
+                // var values = [
+                //   ['John', 'Highway 71'],
+                //   ['Peter', 'Lowstreet 4'],
+                //   ['Amy', 'Apple st 652'],
+                //   ['Hannah', 'Mountain 21'],
+                //   ['Michael', 'Valley 345'],
+                //   ['Sandy', 'Ocean blvd 2'],
+                //   ['Betty', 'Green Grass 1'],
+                //   ['Richard', 'Sky st 331'],
+                //   ['Susan', 'One way 98'],
+                //   ['Vicky', 'Yellow Garden 2'],
+                //   ['Ben', 'Park Lane 38'],
+                //   ['William', 'Central st 954'],
+                //   ['Chuck', 'Main Road 989'],
+                //   ['Viola', 'Sideway 1633']
+                // ];
+                con.query(sql, [reso], function (err, result) {
+                  if (err) throw err;
+                  console.log("Number of records inserted: " + result.affectedRows);
+                });
+              });
+        }
 
         }); 
 
