@@ -1,4 +1,4 @@
-require('./menu/awal.js')();
+require('./menu/functionMenu.js')();
 const qrcode = require('qrcode-terminal');
 const http = require('http');
 const app = require('express');
@@ -28,7 +28,7 @@ client.on('message', message => {
                 let asd = '';
 
                 res.on('data', function(stream) {
-                    data += stream;
+                    data += stream;  
                 asd = data.item;
                 });
 
@@ -57,18 +57,19 @@ client.on('message', message => {
             balas = header()+'\n'+menu()+'\n\n'+footerDefault();
             message.reply(balas);
 
-        } if(message.body === 'kerjasama' || message.body === 'Kerjasama'){
-            pesanKerjasama = kerjasama()+'\n'+footer();
-            message.reply(pesanKerjasama);
+        } if(message.body === 'Langganan' || message.body === 'langganan'){
+            pesanLangganan = langganan()+'\n'+footer();
+            message.reply(pesanLangganan);
 
-        } if(message.body === 'pasang iklan' || message.body === 'Pasang iklan'){
-            pesanPasangIklan = pasangIklan() +'\n\n'+footer();
-            message.reply(pesanPasangIklan);
+        } if(message.body === 'Cari' || message.body === 'cari'){
+            pesanCari = cariBerita() +'\n\n'+footer();
+            message.reply(pesanCari);
 
-        } if(message.body === 'Iya' || message.body === 'iya'){
-            punyaK = punyaKonten()+'\n'+footer();
-            message.reply(punyaK);
+        } if(message.body === 'daftar' || message.body === 'Daftar'){
+            daftar = daftarLangganan()+'\n'+footer();
+            message.reply(daftar);
 
+<<<<<<< HEAD
         } if(message.body === 'Tidak' || message.body === 'tidak'){
             cp = 0341563566;
             punyaK = tidakPunyaKonten()+'\n'+cp+'\n\n'+footerDefault();
@@ -83,28 +84,37 @@ client.on('message', message => {
             pb = publikasi()+'\n\n'+footer();
             message.reply(pb);
         }
+=======
+        } if(message.body === 'cek status' || message.body === 'Cek status'){
+            cekStatus = cekStatusLangganan()+'\n'+footer();
+            message.reply(cekStatus);
 
+        } if(message.body === 'Batal' || message.body === 'batal'){
+            batal = batalLangganan()+'\n'+footer();
+            message.reply(batal);
+>>>>>>> 0b1492a493a46633ec6c6909100a8dae528b7067
 
+        } if(message.body === 'Iklan' || message.body === 'iklan'){
+            iklan = iklan()+'\n'+footer();
+            message.reply(iklan);
 
+        } if(message.body === 'Kontak' || message.body === 'kontak'){
+            cp = 0341563566;
+            kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerDefault();
+            message.reply(kontak);
 
-        // kerjasama();
+        } if(message.body === 'cek slot' || message.body === 'Cek slot'){
+            isi = 'ini adalah slot iklan hari ini'
+            slot = isi+'\n\n'+cekSlot()+'\n\n'+footer();
+            message.reply(slot);
 
-        // case "pasang iklan" :
-        //     message.reply(pasangiklan());
-        // break;
+        } if(message.body === 'front office' || message.body === 'Front office'){
+            frontOf = "WISMA MAS ISMAN\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)"
+            pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footer();
+            message.reply(pb);
 
-        // case "media partner" :
-        //     message.reply(mediapartner());
-        // break;
+        } 
 
-        // case "publikasi" :
-        //     message.reply(publikasi());
-        // break;
-
-        // default :
-        // var content = "hmm mungkin masksud kamu :\n"+menu();
-        // message.reply(content);
-        // break;
         }); 
 
 apo.get('/sendbynum', function (req, res) {
