@@ -144,7 +144,7 @@ client.on('message', message => {
             pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footer();
             message.reply(pb);
 
-        } if(message.body.includes("REG")){
+        } if(message.body.split("#")[0]=="REG"){
             // console.log(message.body);
             var pendaftaran = message.body;
             var reso = pendaftaran.split("#");
@@ -156,29 +156,25 @@ client.on('message', message => {
                 // if (err) throw err;
                 console.log("Connected!");
                 var sql = "INSERT INTO pelanggan (nama_pelanggan, notelp, email, status) VALUES (?)";
-                // var values = [
-                //   ['John', 'Highway 71'],
-                //   ['Peter', 'Lowstreet 4'],
-                //   ['Amy', 'Apple st 652'],
-                //   ['Hannah', 'Mountain 21'],
-                //   ['Michael', 'Valley 345'],
-                //   ['Sandy', 'Ocean blvd 2'],
-                //   ['Betty', 'Green Grass 1'],
-                //   ['Richard', 'Sky st 331'],
-                //   ['Susan', 'One way 98'],
-                //   ['Vicky', 'Yellow Garden 2'],
-                //   ['Ben', 'Park Lane 38'],
-                //   ['William', 'Central st 954'],
-                //   ['Chuck', 'Main Road 989'],
-                //   ['Viola', 'Sideway 1633']
-                // ];
+                con.query(sql, [reso], function (err, result) {
+                  if (err) throw err;
+                  console.log("Number of records inserted: " + result.affectedRows);
+                });
+              });
+        } if(message.body.split("#")[0]=="UNREG"){
+            var pendaftaran = message.body;
+            var reso = pendaftaran.split("#");
+            reso.shift();
+
+            con.connect(function(err) {
+                console.log("Connected!");
+                var sql = "UPDATE pelanggan set status='2' where notelp=?";
                 con.query(sql, [reso], function (err, result) {
                   if (err) throw err;
                   console.log("Number of records inserted: " + result.affectedRows);
                 });
               });
         }
-
         }); 
 
 apo.get('/sendbynum', function (req, res) {
