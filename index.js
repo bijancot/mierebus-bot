@@ -69,22 +69,6 @@ client.on('message', message => {
             daftar = daftarLangganan()+'\n'+footer();
             message.reply(daftar);
 
-<<<<<<< HEAD
-        } if(message.body === 'Tidak' || message.body === 'tidak'){
-            cp = 0341563566;
-            punyaK = tidakPunyaKonten()+'\n'+cp+'\n\n'+footerDefault();
-            message.reply(punyaK);
-
-        } if(message.body === 'Media partner' || message.body === 'media partner'){
-            isi = 'file sknya di taro sini'
-            mediaP = mediaPartner()+'\n'+isi+'\n\n'+skMediaPartner()+'\n\n'+footer();
-            message.reply(mediaP);
-
-        } if(message.body === 'publikasi' || message.body === 'Publikasi'){
-            pb = publikasi()+'\n\n'+footer();
-            message.reply(pb);
-        }
-=======
         } if(message.body === 'cek status' || message.body === 'Cek status'){
             cekStatus = cekStatusLangganan()+'\n'+footer();
             message.reply(cekStatus);
@@ -92,7 +76,6 @@ client.on('message', message => {
         } if(message.body === 'Batal' || message.body === 'batal'){
             batal = batalLangganan()+'\n'+footer();
             message.reply(batal);
->>>>>>> 0b1492a493a46633ec6c6909100a8dae528b7067
 
         } if(message.body === 'Iklan' || message.body === 'iklan'){
             iklan = iklan()+'\n'+footer();
