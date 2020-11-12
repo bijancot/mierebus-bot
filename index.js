@@ -82,9 +82,6 @@ client.on('message', message => {
         } if(message.body === 'publikasi' || message.body === 'Publikasi'){
             pb = publikasi()+'\n\n'+footer();
             message.reply(pb);
-
-        } else{
-            message.reply('aku ga ngerti, ajarin dong');
         }
 
 
