@@ -1,5 +1,7 @@
 require('./menu/functionMenu.js')();
 const qrcode = require('qrcode-terminal');
+const fs = require('fs');
+const qrcodeweb = require('qrcode');
 const http = require('http');
 var mysql = require('mysql');
 const app = require('express');
@@ -11,7 +13,9 @@ const https = require('https');
 const xml2js =  require('xml2js');
 const parser = new xml2js.Parser({explicitArray:false, mergeAttrs : false});
 const number = [62895326927698,6285238909939,6281231285592];
-var hehe;
+var hehe,ros;
+
+//run().catch(error => console.error(error.stack));
 
 var con;
 
@@ -61,6 +65,7 @@ var con;
   handleDisconnect();
 
 client.on('qr', qr => {
+    hehe = qr;
     qrcode.generate(qr, {small: true});
 });
 
@@ -182,6 +187,7 @@ apo.get('/sendbynum', function (req, res) {
     var no = req.query.no+'@c.us';
     console.log(no);
     client.sendMessage(no,haha);
+    //console.log(hehe);
     res.end();
 });
 
@@ -202,6 +208,21 @@ for (i = 0; i < number.length; i++) {
 	res.end();
 	}
   }
+});
+
+apo.get('/getqr', function (req, res) {
+    //console.log(hehe);
+    run().catch(error => console.error(error.stack));
+
+async function run() {
+  const ros = await qrcodeweb.toDataURL(hehe);
+
+  fs.writeFileSync('./qr.html', `<img src="${ros}">`);
+  console.log('Wrote to ./qr.html');
+}
+//var asd = '<img src='+ros+'>';
+console.log('./qr.html');
+res.sendFile('/home/admin/web/diwangkara.dev/public_html/mierebus_node/qr.html');
 });
 
 client.initialize();
