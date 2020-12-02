@@ -75,39 +75,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
         
-        if(message.body === 'berita terbaru' || message.body === 'Berita terbaru'){
-            let req = https.get("https://www.timesindonesia.co.id/feed/all", function(res) {
-                let data = '';
-                let asd = '';
-
-                res.on('data', function(stream) {
-                    data += stream;  
-                asd = data.item;
-                });
-
-                res.on('end', function(){
-                    parser.parseString(data, function(error, result) {
-                        if(error === null) {     
-
-                        var i=0;
-                        var hasillain='';
-                        for(i=0;i<10;i++){
-                            hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
-                        }
-                            headerB = headerBeritaTerbaru();
-                            footer = footerBeritaTerbaru();
-                            isichat = headerB+hasillain+footer;
-                            message.reply(isichat);
-			    //this.stop();
-                        }
-                        else {
-                            console.table(error);
-			    //this.stop();
-                        }
-                    });
-                });
-            });
-        } if(message.body === 'halo' || message.body === 'Halo'){
+         if(message.body === 'halo' || message.body === 'Halo'){
             balas = header()+'\n'+menu()+'\n\n'+footerDefault();
             message.reply(balas);
 	console.log(message.body);
@@ -185,7 +153,37 @@ console.log(message.body);
                   console.log("Number of records inserted: " + result.affectedRows);
                 });
               });
-        }
+        }if(message.body === 'berita terbaru' || message.body === 'Berita terbaru'){
+          let req = https.get("https://www.timesindonesia.co.id/feed/all", function(res) {
+              let data = '';
+              let asd = '';
+
+              res.on('data', function(stream) {
+                  data += stream;  
+              asd = data.item;
+              });
+
+              res.on('end', function(){
+                  parser.parseString(data, function(error, result) {
+                      if(error === null) {     
+
+                      var i=0;
+                      var hasillain='';
+                      for(i=0;i<10;i++){
+                          hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
+                      }
+                          headerB = headerBeritaTerbaru();
+                          footer = footerBeritaTerbaru();
+                          isichat = headerB+hasillain+footer;
+                          message.reply(isichat);
+                      }
+                      else {
+                          console.table(error)
+                      }
+                  });
+              });
+          });
+      }
         }); 
 
 apo.get('/sendbynum', function (req, res) {
