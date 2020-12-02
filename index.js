@@ -17,8 +17,36 @@ var hehe,ros;
 
 //run().catch(error => console.error(error.stack));
 
-var con;
+var con,isichat;
 
+var req = https.get("https://www.timesindonesia.co.id/feed/all", function(res) {
+              let data = '';
+              let asd = '';
+
+              res.on('data', function(stream) {
+                  data += stream;  
+              asd = data.item;
+              });
+
+              res.on('end', function(){
+                  parser.parseString(data, function(error, result) {
+                      if(error === null) {     
+
+                      var i=0;
+                      var hasillain='';
+                      for(i=0;i<10;i++){
+                          hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
+                      }
+                          headerB = headerBeritaTerbaru();
+                          footer = footerBeritaTerbaru();
+                          isichat = headerB+hasillain+footer;           
+                      }
+                      else {
+                          console.table(error)
+                      }
+                  });
+              });
+          });
 
 //   function connectDb() {
 //     con = mysql.createConnection({
@@ -154,35 +182,7 @@ console.log(message.body);
                 });
               });
         }if(message.body === 'berita terbaru' || message.body === 'Berita terbaru'){
-          let req = https.get("https://www.timesindonesia.co.id/feed/all", function(res) {
-              let data = '';
-              let asd = '';
-
-              res.on('data', function(stream) {
-                  data += stream;  
-              asd = data.item;
-              });
-
-              res.on('end', function(){
-                  parser.parseString(data, function(error, result) {
-                      if(error === null) {     
-
-                      var i=0;
-                      var hasillain='';
-                      for(i=0;i<10;i++){
-                          hasillain += '*'+result.rss.channel.item[i].title+'* \n'+result.rss.channel.item[i].guid+'\n\n' ;
-                      }
-                          headerB = headerBeritaTerbaru();
-                          footer = footerBeritaTerbaru();
-                          isichat = headerB+hasillain+footer;
-                          message.reply(isichat);
-                      }
-                      else {
-                          console.table(error)
-                      }
-                  });
-              });
-          });
+          message.reply(isichat);
       }
         }); 
 
