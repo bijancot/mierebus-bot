@@ -12,7 +12,7 @@ const port = 3000;
 const https = require('https');
 const xml2js =  require('xml2js');
 const parser = new xml2js.Parser({explicitArray:false, mergeAttrs : false});
-const number = [62895326927698,6285238909939,6281231285592];
+const number = [62895326927698,6285238909939];
 var hehe,ros;
 
 //run().catch(error => console.error(error.stack));
@@ -98,10 +98,11 @@ client.on('message', message => {
                             footer = footerBeritaTerbaru();
                             isichat = headerB+hasillain+footer;
                             message.reply(isichat);
-
+			    //this.stop();
                         }
                         else {
                             console.table(error);
+			    //this.stop();
                         }
                     });
                 });
@@ -109,18 +110,22 @@ client.on('message', message => {
         } if(message.body === 'halo' || message.body === 'Halo'){
             balas = header()+'\n'+menu()+'\n\n'+footerDefault();
             message.reply(balas);
+	console.log(message.body);
 
         } if(message.body === 'Langganan' || message.body === 'langganan'){
             pesanLangganan = langganan()+'\n'+footer();
             message.reply(pesanLangganan);
+	    console.log(message.body);
 
         } if(message.body === 'Cari' || message.body === 'cari'){
             pesanCari = cariBerita() +'\n\n'+footer();
             message.reply(pesanCari);
+console.log(message.body);
 
         } if(message.body === 'daftar' || message.body === 'Daftar'){
             daftar = daftarLangganan()+'\n'+footer();
             message.reply(daftar);
+console.log(message.body);
 
         } if(message.body === 'cek status' || message.body === 'Cek status'){
             cekStatus = cekStatusLangganan()+'\n'+footer();
@@ -133,6 +138,7 @@ client.on('message', message => {
         } if(message.body === 'Iklan' || message.body === 'iklan'){
             iklan = iklan()+'\n'+footer();
             message.reply(iklan);
+console.log(message.body);
 
         } if(message.body === 'Kontak' || message.body === 'kontak'){
             cp = 0341563566;
