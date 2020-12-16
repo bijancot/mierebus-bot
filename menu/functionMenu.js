@@ -2,15 +2,15 @@
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
-    return 'Kamu bisa memilih salah satu menu dibawah ini\n1. Berita terbaru. \n2. Langganan e-Koran. \n3. Cari Berita. \n4. Beriklan Bersama Kami.'
+    return 'Kamu bisa memilih salah satu menu dibawah ini\n1. Berita terbaru \n2. Langganan e-Koran (Langganan) \n3. Beriklan Bersama Kami (Iklan).'
 };
 this.langganan = function() { //Menu langganan e-koran
-   return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n1. Daftar langganan \n2. Cek status langganan \n3. Berhenti langganan \n\n'
+   return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n4. Daftar langganan (Daftar) \n5. Berhenti langganan (Batal)\n\n'
 };
 
 //submenu langganan daftar
 this.daftarLangganan = function() { //Menu langganan e-koran
-   return 'Untuk berlangganan silahkan ketik *REG<spasi>nama<spasi>NomorHandPhone<spasi>alamat email \n\n Contoh REG Monica 085220847273 hore@gmail.com\n\n'
+   return 'Untuk berlangganan silahkan ketik *REG#nama#NomorHandPhone#alamat email \n\n Contoh : *REG#Monica#085220847273#hore@gmail.com*\n\n'
 };
 
 //submenu langganan cek status
@@ -28,7 +28,7 @@ this.cariBerita = function() { //Menu cari berita
    return 'Silahkan masukkan kata kunci berita yang ingin kamu cari\n\n'
    }; 
 this.iklan = function(){ // Menu iklan
-   return 'Yuk, Beriklan bersama kami. Untuk memulai silahkan pilih menu dibawah ini : \n\n1. Info Kontak Marketing \n2. Cek slot iklan\n3.  Cek Front Office TIMES Indonesia'
+   return 'Yuk, Beriklan bersama kami. Untuk memulai silahkan pilih menu dibawah ini : \n\n6. Info Kontak Marketing (Kontak)\n7.  Cek Front Office TIMES Indonesia (Front office)'
    }; 
 this.kontakMarketing =  function(){
    return 'halo, untuk memasang iklan silahkan hubungi kontak marketing kami dibawah ini\n\n'
@@ -39,14 +39,6 @@ this.cekSlot =  function(){
 this.cekFrontOffice =  function(){
    return 'Halo ini adalah Front Office TIMES Indonesia\n\n'
    }; //submenu kontak marketing
-
- // Permintaan Berita
- this.beritaTerbaru = function(){
-      // berita = getBerita();
-      // console.log(berita);
-      // console.log(getBerita());
-      return berita;
- };
 
  //Struktur Chat
 
@@ -69,7 +61,7 @@ this.cekFrontOffice =  function(){
    return 'Silahkan ketik sesuai kata kunci menu yang ada. Contoh *berita*, *cari*, *iklan*'
    };
 
-
+ 
 }
 return module.exports;
  
