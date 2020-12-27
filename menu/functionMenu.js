@@ -2,7 +2,7 @@
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
-    return 'Kamu bisa memilih salah satu menu dibawah ini\n 1. Berita terbaru. \n*Langganan e-Koran* \n 2. Daftar langganan (Daftar) \n 3. Berhenti langganan (Batal). \n*Beriklan Bersama Kami.* \n 4. Info Kontak Marketing (Kontak) \n 5. Cek Front Office TIMES Indonesia (Front office). \n 99. Kembali ke menu awal'
+    return 'Kamu bisa memilih salah satu menu dibawah ini\n 1. Berita terbaru.\n 2. E-Koran. \n*Citizent Journalist* \n 3. AJP. \n 4. DJ. \n 5. Indonesia Bisa. \n*Langganan e-Koran* \n 6. Daftar langganan (Daftar) \n 7. Berhenti langganan (Batal). \n*Beriklan Bersama Kami.* \n 8. Info Kontak Marketing (Kontak) \n 9. Cek Front Office TIMES Indonesia (Front office). \n 99. Kembali ke menu awal'
 };
 this.langganan = function() { //Menu langganan e-koran
    return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n4. Daftar langganan (Daftar) \n5. Berhenti langganan (Batal)\n\n'
@@ -18,8 +18,12 @@ this.cekStatusLangganan = function() { //Menu cek status langganan
    return 'Status langganan anda adalah : \n\n'
 };
 
+this.citizen = function() { //Menu Utama
+   return 'Selamat datang dilayanan Citizen Journalist.\nSilahkan pilih salah satu menu dibawah ini.\nTerima kasih\n\n 1. AJP. \n 2. DJ \n 3. Indonesia Bisa.'
+};
+
 //submenu langganan berhenti 
-this.batalLangganan = function() { //Menu langganan e-koran
+this.batalLangganan = function() { //Menu langganan e-koran 
    return 'Untuk berhenti berlangganan, silahkan ketik *UNREG*\n\n'
 }; 
 

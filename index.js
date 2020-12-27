@@ -75,7 +75,7 @@ client.on('message', message => {
             pesanCari = cariBerita() +'\n\n'+footerDefault();
             message.reply(pesanCari);
 
-        }else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 2){
+        }else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 6){
             daftar = daftarLangganan()+'\n'+footerDefault();
             message.reply(daftar);
             console.log(message.body)
@@ -84,16 +84,35 @@ client.on('message', message => {
             cekStatus = cekStatusLangganan()+'\n'+footerDefault();
             message.reply(cekStatus);
 
-        }else if(message.body == 'Batal' || message.body == 'batal' || message.body == 3){
+        }else if(message.body == 'Batal' || message.body == 'batal' || message.body == 7){
             batal = batalLangganan()+'\n'+footerDefault();
             message.reply(batal);
 
-        // }else if(message.body == 'Iklan' || message.body == 'iklan' || message.body == 3){
-        //     iklan = iklan()+'\n'+footerDefault();
-        //     message.reply(iklan);
-        //     console.log(message.body)
+        }else if(message.body == 'AJP' || message.body == 'djp' || message.body == 3){
+            daftarLink = "ini daftar nya (link)";
+            harga = "ini harga nya";
+            loginLink = "login (link)";
+            balas = daftarLink +'\n'+ harga +'\n'+ loginLink;
+            message.reply(balas);
+            console.log(message.body);
 
-        }else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 4){
+        }else if(message.body == 'DJ' || message.body == 'dj' || message.body == 4){
+            daftarIdem = "ini daftar Idem nya (link)";
+            hargaIdem = "ini harga nya";
+            loginIdem = "login (link)";
+            balasIdem = daftarIdem +'\n'+ hargaIdem +'\n'+ loginIdem;
+            message.reply(balasIdem);
+            console.log(message.body);
+
+        }else if(message.body == 'Indonesia Bisa' || message.body == 'indonesia bisa' || message.body == 5){
+            daftarIdemI = "ini daftar Idem nya (link)";
+            hargaIdemI = "ini harga nya";
+            loginIdemI = "login (link)";
+            balasIdemI = daftarIdemI +'\n'+ hargaIdemI +'\n'+ loginIdemI;
+            message.reply(balasIdemI);
+            console.log(message.body);
+        }
+        else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 8){
             cp = "0341563566";
             kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerDefault();
             message.reply(kontak);
@@ -103,8 +122,8 @@ client.on('message', message => {
             slot = isi+'\n\n'+cekSlot()+'\n\n'+footerDefault();
             message.reply(slot);
 
-        }else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 5){
-            frontOf = "WISMA MAS ISMAN\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)"
+        }else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 9){
+            frontOf = "*WISMA MAS ISMAN*\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)"
             pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footerDefault();
             message.reply(pb);
 
