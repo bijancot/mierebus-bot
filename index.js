@@ -62,20 +62,20 @@ client.on('ready', () => {
 
 client.on('message', message => {
         
-         if(message.body == 'halo' || message.body == 'Halo'){
+        if(message.body == 'halo' || message.body == 'Halo' || message.body == 99){
             balas = header()+'\n'+menu()+'\n\n'+footerDefault();
             message.reply(balas);
 
-        }else if(message.body == 'Langganan' || message.body == 'langganan' || message.body == 2){
-            pesanLangganan = langganan()+'\n'+footerDefault();
-            message.reply(pesanLangganan);
-            console.log(message.body)
+        // }else if(message.body == 'Langganan' || message.body == 'langganan' || message.body == 2){
+        //     pesanLangganan = langganan()+'\n'+footerDefault();
+        //     message.reply(pesanLangganan);
+        //     console.log(message.body)
 
         }else if(message.body == 'Cari' || message.body == 'cari'){
             pesanCari = cariBerita() +'\n\n'+footerDefault();
             message.reply(pesanCari);
 
-        }else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 4){
+        }else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 2){
             daftar = daftarLangganan()+'\n'+footerDefault();
             message.reply(daftar);
             console.log(message.body)
@@ -84,28 +84,28 @@ client.on('message', message => {
             cekStatus = cekStatusLangganan()+'\n'+footerDefault();
             message.reply(cekStatus);
 
-        }else if(message.body == 'Batal' || message.body == 'batal' || message.body == 5){
+        }else if(message.body == 'Batal' || message.body == 'batal' || message.body == 3){
             batal = batalLangganan()+'\n'+footerDefault();
             message.reply(batal);
 
-        }else if(message.body == 'Iklan' || message.body == 'iklan' || message.body == 3){
-            iklan = iklan()+'\n'+footerDefault();
-            message.reply(iklan);
-            console.log(message.body)
+        // }else if(message.body == 'Iklan' || message.body == 'iklan' || message.body == 3){
+        //     iklan = iklan()+'\n'+footerDefault();
+        //     message.reply(iklan);
+        //     console.log(message.body)
 
-        }else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 6){
-            cp = 0341563566;
+        }else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 4){
+            cp = "0341563566";
             kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerDefault();
             message.reply(kontak);
 
         }else if(message.body == 'cek slot' || message.body == 'Cek slot'){
             isi = 'ini adalah slot iklan hari ini'
-            slot = isi+'\n\n'+cekSlot()+'\n\n'+footer();
+            slot = isi+'\n\n'+cekSlot()+'\n\n'+footerDefault();
             message.reply(slot);
 
-        }else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 7){
+        }else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 5){
             frontOf = "WISMA MAS ISMAN\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)"
-            pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footer();
+            pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footerDefault();
             message.reply(pb);
 
         }else if(message.body.split("#")[0]=="REG"){
@@ -124,6 +124,9 @@ client.on('message', message => {
                   if (err) throw err;
                   console.log("Number of records inserted: " + result.affectedRows);
                   message.reply('Selamat anda telah terdaftar!');
+                  balas = header()+'\n'+menu()+'\n\n'+footerDefault();
+                  message.reply(balas);
+
                 });
               });
         }else if(message.body.split("#")[0]=="UNREG"){
@@ -181,13 +184,13 @@ apo.get('/sendbatch', function (req, res){
 
 for (i = 0; i < number.length; i++) {
 	if(i<number.length){
-	console.log(i);
-	console.log(number.length);
-	var newnumber = number[i]+'@c.us';
-	client.sendMessage(newnumber, chat);
+    console.log(i);
+    console.log(number.length);
+    var newnumber = number[i]+'@c.us';
+    client.sendMessage(newnumber, chat);
 	}if(i==(number.length-1)){
-	res.end();
-	}
+	  res.end();
+	  }
   }
 });
 

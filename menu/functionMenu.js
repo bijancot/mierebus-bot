@@ -2,7 +2,7 @@
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
-    return 'Kamu bisa memilih salah satu menu dibawah ini\n1. Berita terbaru \n2. Langganan e-Koran (Langganan) \n3. Beriklan Bersama Kami (Iklan).'
+    return 'Kamu bisa memilih salah satu menu dibawah ini\n 1. Berita terbaru. \n*Langganan e-Koran* \n 2. Daftar langganan (Daftar) \n 3. Berhenti langganan (Batal). \n*Beriklan Bersama Kami.* \n 4. Info Kontak Marketing (Kontak) \n 5. Cek Front Office TIMES Indonesia (Front office). \n 99. Kembali ke menu awal'
 };
 this.langganan = function() { //Menu langganan e-koran
    return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n4. Daftar langganan (Daftar) \n5. Berhenti langganan (Batal)\n\n'
@@ -22,7 +22,6 @@ this.cekStatusLangganan = function() { //Menu cek status langganan
 this.batalLangganan = function() { //Menu langganan e-koran
    return 'Untuk berhenti berlangganan, silahkan ketik *UNREG*\n\n'
 }; 
-
 
 this.cariBerita = function() { //Menu cari berita
    return 'Silahkan masukkan kata kunci berita yang ingin kamu cari\n\n'
@@ -55,12 +54,8 @@ this.cekFrontOffice =  function(){
  };
 
  this.footerDefault = function(){
-   return "\n\nJangan lupa kunjungi website kami\n\n Salam hangat timesindonesia.co.id :D\n";
+   return "\n\nJangan lupa simpan nomor ini dan kunjungi website kami\n\n Salam hangat timesindonesia.co.id :D\n";
  };
- this.footer = function(){
-   return 'Silahkan ketik sesuai kata kunci menu yang ada. Contoh *berita*, *cari*, *iklan*'
-   };
-
  
 }
 return module.exports;
