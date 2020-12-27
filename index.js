@@ -113,7 +113,7 @@ client.on('message', message => {
             console.log(message.body);
         }
         else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 8){
-            cp = "0341563566";
+            cp = "0341563566"; 
             kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerDefault();
             message.reply(kontak);
 
