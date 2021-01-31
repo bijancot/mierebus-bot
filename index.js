@@ -92,7 +92,7 @@ client.on('message', message => {
             daftarLink = "ini daftar nya (link)";
             harga = "ini harga nya";
             loginLink = "login (link)";
-            balas = daftarLink +'\n'+ harga +'\n'+ loginLink;
+            balas = daftarLink +'\n'+ harga +'\n'+ loginLink+'\n\n99. Kembali ke menu awal.\n\n';
             message.reply(balas);
             console.log(message.body);
 
@@ -100,7 +100,7 @@ client.on('message', message => {
             daftarIdem = "ini daftar Idem nya (link)";
             hargaIdem = "ini harga nya";
             loginIdem = "login (link)";
-            balasIdem = daftarIdem +'\n'+ hargaIdem +'\n'+ loginIdem;
+            balasIdem = daftarIdem +'\n'+ hargaIdem +'\n'+ loginIdem+'\n\n99. Kembali ke menu awal.\n\n';
             message.reply(balasIdem);
             console.log(message.body);
 
@@ -108,13 +108,13 @@ client.on('message', message => {
             daftarIdemI = "ini daftar Idem nya (link)";
             hargaIdemI = "ini harga nya";
             loginIdemI = "login (link)";
-            balasIdemI = daftarIdemI +'\n'+ hargaIdemI +'\n'+ loginIdemI;
+            balasIdemI = daftarIdemI +'\n'+ hargaIdemI +'\n'+ loginIdemI+'\n\n99. Kembali ke menu awal.\n\n';
             message.reply(balasIdemI);
             console.log(message.body);
         }
         else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 8){
             cp = "0341563566"; 
-            kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerDefault();
+            kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerBeritaTerbaru();
             message.reply(kontak);
 
         }else if(message.body == 'cek slot' || message.body == 'Cek slot'){
@@ -123,8 +123,8 @@ client.on('message', message => {
             message.reply(slot);
 
         }else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 9){
-            frontOf = "*WISMA MAS ISMAN*\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)"
-            pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footerDefault();
+            frontOf = "*WISMA MAS ISMAN*\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)\n\n 99. Kembali ke menu awal.\n\n"
+            pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footerBeritaTerbaru();
             message.reply(pb);
 
         }else if(message.body.split("#")[0]=="REG"){
@@ -168,6 +168,7 @@ client.on('message', message => {
           const getNews = async () =>{
             let feed = await parser.parseURL('https://www.timesindonesia.co.id/feed/all');
             return feed;
+
         }
         
         const mainyuk = async () =>{
@@ -185,6 +186,8 @@ client.on('message', message => {
           })()
        }
         }); 
+
+        
 
 apo.get('/sendbynum', function (req, res) {
     var haha = req.query.body;

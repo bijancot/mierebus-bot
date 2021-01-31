@@ -2,15 +2,15 @@
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
-    return 'Kamu bisa memilih salah satu menu dibawah ini\n 1. Berita terbaru.\n 2. E-Koran. \n*Citizent Journalist* \n 3. AJP. \n 4. DJ. \n 5. Indonesia Bisa. \n*Langganan e-Koran* \n 6. Daftar langganan (Daftar) \n 7. Berhenti langganan (Batal). \n*Beriklan Bersama Kami.* \n 8. Info Kontak Marketing (Kontak) \n 9. Cek Front Office TIMES Indonesia (Front office). \n 99. Kembali ke menu awal'
+    return 'Kamu bisa memilih salah satu menu dibawah ini\n 1. Berita terbaru.\n 2. E-Koran. \n*Citizent Journalist* \n 3. AJP. \n 4. DJ. \n 5. Indonesia Bisa. \n*Langganan e-Koran* \n 6. Daftar langganan (Daftar) \n 7. Berhenti langganan (Batal). \n*Beriklan Bersama Kami.* \n 8. Info Kontak Marketing (Kontak) \n 9. Cek Front Office TIMES Indonesia (Front office). '
 };
 this.langganan = function() { //Menu langganan e-koran
-   return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n4. Daftar langganan (Daftar) \n5. Berhenti langganan (Batal)\n\n'
+   return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n4. Daftar langganan (Daftar) \n5. Berhenti langganan (Batal).\n\n'
 };
 
 //submenu langganan daftar
 this.daftarLangganan = function() { //Menu langganan e-koran
-   return 'Untuk berlangganan silahkan ketik *REG#nama#NomorHandPhone#alamat email \n\n Contoh : *REG#Monica#085220847273#hore@gmail.com*\n\n'
+   return 'Untuk berlangganan silahkan ketik *REG#nama#NomorHandPhone#alamat email \n\n Contoh : *REG#Monica#085220847273#hore@gmail.com*\n\n99. Kembali ke menu awal.\n\n'
 };
 
 //submenu langganan cek status
@@ -19,22 +19,22 @@ this.cekStatusLangganan = function() { //Menu cek status langganan
 };
 
 this.citizen = function() { //Menu Utama
-   return 'Selamat datang dilayanan Citizen Journalist.\nSilahkan pilih salah satu menu dibawah ini.\nTerima kasih\n\n 1. AJP. \n 2. DJ \n 3. Indonesia Bisa.'
+   return 'Selamat datang dilayanan Citizen Journalist.\nSilahkan pilih salah satu menu dibawah ini.\nTerima kasih\n\n 1. AJP. \n 2. DJ \n 3. Indonesia Bisa.\n\n'
 };
 
 //submenu langganan berhenti 
 this.batalLangganan = function() { //Menu langganan e-koran 
-   return 'Untuk berhenti berlangganan, silahkan ketik *UNREG*\n\n'
+   return 'Untuk berhenti berlangganan, silahkan ketik *UNREG*\n\n 99. Kembali ke menu awal.\n\n'
 }; 
 
 this.cariBerita = function() { //Menu cari berita
    return 'Silahkan masukkan kata kunci berita yang ingin kamu cari\n\n'
    }; 
 this.iklan = function(){ // Menu iklan
-   return 'Yuk, Beriklan bersama kami. Untuk memulai silahkan pilih menu dibawah ini : \n\n6. Info Kontak Marketing (Kontak)\n7.  Cek Front Office TIMES Indonesia (Front office)'
+   return 'Yuk, Beriklan bersama kami. Untuk memulai silahkan pilih menu dibawah ini : \n\n6. Info Kontak Marketing (Kontak)\n7.  Cek Front Office TIMES Indonesia (Front office).\n\n'
    }; 
 this.kontakMarketing =  function(){
-   return 'halo, untuk memasang iklan silahkan hubungi kontak marketing kami dibawah ini\n\n'
+   return 'halo, untuk memasang iklan silahkan hubungi kontak marketing kami dibawah ini\n'
    }; //submenu kontak marketing
 this.cekSlot =  function(){
    return 'Ini adalah daftar slot iklan kami :)\n\n'
