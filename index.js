@@ -119,37 +119,12 @@ client.on('message', message => {
         }
 
 
-
-        // else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 6){
-        //     daftar = daftarLangganan()+'\n'+footerDefault();
-        //     message.reply(daftar);
-        //     console.log(message.body)
-        // }
-
-
-
-        // else if(message.body == 'cek status' || message.body == 'Cek status'){
-        //     cekStatus = cekStatusLangganan()+'\n'+footerDefault();
-        //     message.reply(cekStatus);
-
-        // }
-        // else if(message.body == 'Batal' || message.body == 'batal' || message.body == 7){
-        //     batal = batalLangganan()+'\n'+footerDefault();
-        //     message.reply(batal);
-
-        // }
         else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 10){
             cp = "0341563566"; 
             kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerBeritaTerbaru();
             message.reply(kontak);
 
         }
-        // else if(message.body == 'cek slot' || message.body == 'Cek slot'){
-        //     isi = 'ini adalah slot iklan hari ini'
-        //     slot = isi+'\n\n'+cekSlot()+'\n\n'+footerDefault();
-        //     message.reply(slot);
-
-        // }
         else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 11){
             frontOf = "*WISMA MAS ISMAN*\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)\n\n 99. Kembali ke menu awal.\n\n"
             pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footerBeritaTerbaru();
