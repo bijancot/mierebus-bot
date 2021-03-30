@@ -2,7 +2,7 @@
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
-    return '*Berita Terbaru*\n1. Berita TIMES Indonesia Terbaru\n2. eKoran Terbaru.\n3. Kopitimes Terbaru\n\n*Citizen Journalist*\n4. AJP (Aplikasi jurnalisme Positif) *AJP*.\n5. DJ (Digital Journalist) *DJ*.\n6. BISA (Indonesia Bangkit) *BISA*.\n\n*Langganan Konten (*GRATIS*)*\n7. TIMES Indonesia. \n8. eKoran.\n\9. Kopi TIMES (Opini)\n\n*Beriklan Bersama Kami*\n10. Info Kontak Marketing (Kontak)\n11. Cek Front Office TIMES Indonesia (Front office).'
+    return '*Berita Terbaru*\n1. Berita TIMES Indonesia Terbaru\n2. eKoran Terbaru.\n3. Kopitimes Terbaru\n\n*Citizen Journalist*\n4. AJP (Aplikasi jurnalisme Positif)*.\n5. DJ (Digital Journalist).\n6. BISA (Indonesia Bangkit).\n\n*Langganan Konten (*GRATIS*)*\n7. TIMES Indonesia. \n8. eKoran.\n\9. Kopi TIMES (Opini)\n\n*Beriklan Bersama Kami*\n10. Info Kontak Marketing (Kontak)\n11. Cek Front Office TIMES Indonesia (Front office).'
 };
 this.ekoran = function() { //Menu langganan e-koran
    return 'Dari kami khusus untuk kamu, ini 5 eKoran terbaru hari ini :\n\n'
