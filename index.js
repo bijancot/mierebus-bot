@@ -66,63 +66,91 @@ client.on('message', message => {
             balas = header()+'\n'+menu()+'\n\n'+footerDefault();
             message.reply(balas);
 
-        // }else if(message.body == 'Langganan' || message.body == 'langganan' || message.body == 2){
-        //     pesanLangganan = langganan()+'\n'+footerDefault();
-        //     message.reply(pesanLangganan);
-        //     console.log(message.body)
-
-        }else if(message.body == 'Cari' || message.body == 'cari'){
-            pesanCari = cariBerita() +'\n\n'+footerDefault();
-            message.reply(pesanCari);
-
-        }else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 6){
-            daftar = daftarLangganan()+'\n'+footerDefault();
-            message.reply(daftar);
+        }else if(message.body == 'ekoran terbaru' || message.body == 'eKoran Terbaru' || message.body == 2){
+            pesanEkoran = ekoran()+'\n'+footerDefault();
+            message.reply(pesanEkoran);
             console.log(message.body)
 
-        }else if(message.body == 'cek status' || message.body == 'Cek status'){
-            cekStatus = cekStatusLangganan()+'\n'+footerDefault();
-            message.reply(cekStatus);
+        }else if(message.body == 'kopitimes' || message.body == 'Kopitimes' || message.body == 3){
+            pesanKopi = kopitimes()+'\n'+footerDefault();
+            message.reply(pesanKopi);
+            console.log(message.body)
+      
+        } else if(message.body == 'AJP' || message.body == 'ajp' || message.body == 4){
+          daftarLink = "link isi form ajp";
+          balas = daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          message.reply(balas);
+          console.log(message.body);
 
-        }else if(message.body == 'Batal' || message.body == 'batal' || message.body == 7){
-            batal = batalLangganan()+'\n'+footerDefault();
-            message.reply(batal);
+        }else if(message.body == 'DJ' || message.body == 'dj' || message.body == 5){
+          daftarLink = "link isi form dj";
+          balas = daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          message.reply(balas);
+          console.log(message.body);
 
-        }else if(message.body == 'AJP' || message.body == 'djp' || message.body == 3){
-            daftarLink = "ini daftar nya (link)";
-            harga = "ini harga nya";
-            loginLink = "login (link)";
-            balas = daftarLink +'\n'+ harga +'\n'+ loginLink+'\n\n99. Kembali ke menu awal.\n\n';
-            message.reply(balas);
-            console.log(message.body);
-
-        }else if(message.body == 'DJ' || message.body == 'dj' || message.body == 4){
-            daftarIdem = "ini daftar Idem nya (link)";
-            hargaIdem = "ini harga nya";
-            loginIdem = "login (link)";
-            balasIdem = daftarIdem +'\n'+ hargaIdem +'\n'+ loginIdem+'\n\n99. Kembali ke menu awal.\n\n';
-            message.reply(balasIdem);
-            console.log(message.body);
-
-        }else if(message.body == 'Indonesia Bisa' || message.body == 'indonesia bisa' || message.body == 5){
-            daftarIdemI = "ini daftar Idem nya (link)";
-            hargaIdemI = "ini harga nya";
-            loginIdemI = "login (link)";
-            balasIdemI = daftarIdemI +'\n'+ hargaIdemI +'\n'+ loginIdemI+'\n\n99. Kembali ke menu awal.\n\n';
-            message.reply(balasIdemI);
-            console.log(message.body);
+        }else if(message.body == 'BISA (Indonesia Bangkit)' || message.body == 'BISA' || message.body == 'bisa'  || message.body == 6){
+          daftarLink = "link isi form";
+          balas = daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          message.reply(balas);
+          console.log(message.body);
         }
-        else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 8){
+        else if(message.body == 'TIMES Indonesia' || message.body == 'times indonesia' || message.body == 'Times Indonesia' || message.body == 7){
+          daftarLink = 't.me/timesindonesia';
+          pesan = "Silahkan klik ";
+          balas = pesan+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          message.reply(balas);
+          console.log(message.body);
+        }
+
+        else if(message.body == 'eKoran' || message.body == 'ekoran' || message.body == 8){
+          daftarLink = 't.me/ekorantimes';
+          pesan = "Silahkan klik ";
+          balas = pesan+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          message.reply(balas);
+          console.log(message.body);
+        }
+
+        else if(message.body == 'Kopi TIMES' || message.body == 'Kopi Times'|| message.body == 'kopi times' || message.body == 9){
+          daftarLink = 't.me/kopitimes';
+          pesan = "Silahkan klik ";
+          balas = pesan+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          message.reply(balas);
+          console.log(message.body);
+        }
+
+
+
+        // else if(message.body == 'daftar' || message.body == 'Daftar' || message.body == 6){
+        //     daftar = daftarLangganan()+'\n'+footerDefault();
+        //     message.reply(daftar);
+        //     console.log(message.body)
+        // }
+
+
+
+        // else if(message.body == 'cek status' || message.body == 'Cek status'){
+        //     cekStatus = cekStatusLangganan()+'\n'+footerDefault();
+        //     message.reply(cekStatus);
+
+        // }
+        // else if(message.body == 'Batal' || message.body == 'batal' || message.body == 7){
+        //     batal = batalLangganan()+'\n'+footerDefault();
+        //     message.reply(batal);
+
+        // }
+        else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 10){
             cp = "0341563566"; 
             kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerBeritaTerbaru();
             message.reply(kontak);
 
-        }else if(message.body == 'cek slot' || message.body == 'Cek slot'){
-            isi = 'ini adalah slot iklan hari ini'
-            slot = isi+'\n\n'+cekSlot()+'\n\n'+footerDefault();
-            message.reply(slot);
+        }
+        // else if(message.body == 'cek slot' || message.body == 'Cek slot'){
+        //     isi = 'ini adalah slot iklan hari ini'
+        //     slot = isi+'\n\n'+cekSlot()+'\n\n'+footerDefault();
+        //     message.reply(slot);
 
-        }else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 9){
+        // }
+        else if(message.body == 'front office' || message.body == 'Front office' || message.body == 'Front Office' || message.body == 11){
             frontOf = "*WISMA MAS ISMAN*\n\nJalan Teuku Cik Ditiro No.34 Menteng Jakarta Pusat 10310.\nTelp/Fax (021) 21394119.\nEmail: redaksi@timesindonesia.co.id (khusus redaksi),\nads@timesindonesia.co.id (khusus iklan)\n\n 99. Kembali ke menu awal.\n\n"
             pb =  cekFrontOffice()+'\n\n'+frontOf+'\n\n'+footerBeritaTerbaru();
             message.reply(pb);

@@ -2,43 +2,48 @@
 module.exports = function() {
 
 this.menu = function() { //Menu Utama
-    return 'Kamu bisa memilih salah satu menu dibawah ini\n 1. Berita terbaru.\n 2. E-Koran. \n*Citizent Journalist* \n 3. AJP. \n 4. DJ. \n 5. Indonesia Bisa. \n*Langganan e-Koran* \n 6. Daftar langganan (Daftar) \n 7. Berhenti langganan (Batal). \n*Beriklan Bersama Kami.* \n 8. Info Kontak Marketing (Kontak) \n 9. Cek Front Office TIMES Indonesia (Front office). '
+    return '*Berita Terbaru*\n1. Berita TIMES Indonesia Terbaru\n2. eKoran Terbaru.\n3. Kopitimes Terbaru\n\n*Citizen Journalist*\n4. AJP (Aplikasi jurnalisme Positif) *AJP*.\n5. DJ (Digital Journalist) *DJ*.\n6. BISA (Indonesia Bangkit) *BISA*.\n\n*Langganan Konten (*GRATIS*)*\n7. TIMES Indonesia. \n8. eKoran.\n\9. Kopi TIMES (Opini)\n\n*Beriklan Bersama Kami*\n10. Info Kontak Marketing (Kontak)\n11. Cek Front Office TIMES Indonesia (Front office).'
 };
-this.langganan = function() { //Menu langganan e-koran
-   return 'Selamat datang dilangganan e-Koran. \nUntuk melanjutkan silahkan memilih menu dibawah ini \n\n4. Daftar langganan (Daftar) \n5. Berhenti langganan (Batal).\n\n'
+this.ekoran = function() { //Menu langganan e-koran
+   return 'Dari kami khusus untuk kamu, ini 5 eKoran terbaru hari ini :\n\n'
+};
+
+
+this.kopitimes = function() { //Menu langganan e-koran
+   return 'Dari kami khusus untuk kamu, ini 5 eKoran terbaru hari ini :\n\n'
 };
 
 //submenu langganan daftar
-this.daftarLangganan = function() { //Menu langganan e-koran
-   return 'Untuk berlangganan silahkan ketik *REG#nama#NomorHandPhone#alamat email \n\n Contoh : *REG#Monica#085220847273#hore@gmail.com*\n\n99. Kembali ke menu awal.\n\n'
-};
+// this.daftarLangganan = function() { //Menu langganan e-koran
+//    return 'Untuk berlangganan silahkan ketik *REG#nama#NomorHandPhone#alamat email \n\n Contoh : *REG#Monica#085220847273#hore@gmail.com*\n\n99. Kembali ke menu awal.\n\n'
+// };
 
 //submenu langganan cek status
-this.cekStatusLangganan = function() { //Menu cek status langganan
-   return 'Status langganan anda adalah : \n\n'
-};
+// this.cekStatusLangganan = function() { //Menu cek status langganan
+//    return 'Status langganan anda adalah : \n\n'
+// };
 
 this.citizen = function() { //Menu Utama
-   return 'Selamat datang dilayanan Citizen Journalist.\nSilahkan pilih salah satu menu dibawah ini.\nTerima kasih\n\n 1. AJP. \n 2. DJ \n 3. Indonesia Bisa.\n\n'
+   return 'Selamat datang dilayanan Citizen Journalist.\nSilahkan pilih salah satu menu dibawah ini.\nTerima kasih\n\n 1. AJP (Aplikasi Jurnalisme Positif) *AJP* . \n 2. DJ (Digital Journalist) *DJ* \n 3. BISA (Indonesia Bangkit) *bisa*.\n\n'
 };
 
 //submenu langganan berhenti 
-this.batalLangganan = function() { //Menu langganan e-koran 
-   return 'Untuk berhenti berlangganan, silahkan ketik *UNREG*\n\n 99. Kembali ke menu awal.\n\n'
-}; 
+// this.batalLangganan = function() { //Menu langganan e-koran 
+//    return 'Untuk berhenti berlangganan, silahkan ketik *UNREG*\n\n 99. Kembali ke menu awal.\n\n'
+// }; 
 
-this.cariBerita = function() { //Menu cari berita
-   return 'Silahkan masukkan kata kunci berita yang ingin kamu cari\n\n'
-   }; 
+// this.cariBerita = function() { //Menu cari berita
+//    return 'Silahkan masukkan kata kunci berita yang ingin kamu cari\n\n'
+//    }; 
 this.iklan = function(){ // Menu iklan
    return 'Yuk, Beriklan bersama kami. Untuk memulai silahkan pilih menu dibawah ini : \n\n6. Info Kontak Marketing (Kontak)\n7.  Cek Front Office TIMES Indonesia (Front office).\n\n'
    }; 
 this.kontakMarketing =  function(){
    return 'halo, untuk memasang iklan silahkan hubungi kontak marketing kami dibawah ini\n'
    }; //submenu kontak marketing
-this.cekSlot =  function(){
-   return 'Ini adalah daftar slot iklan kami :)\n\n'
-   }; //submenu slot iklan
+// this.cekSlot =  function(){
+//    return 'Ini adalah daftar slot iklan kami :)\n\n'
+//    }; //submenu slot iklan
 this.cekFrontOffice =  function(){
    return 'Halo ini adalah Front Office TIMES Indonesia\n\n'
    }; //submenu kontak marketing
@@ -46,11 +51,11 @@ this.cekFrontOffice =  function(){
  //Struktur Chat
 
  this.header = function(){
-   return "\nHai!\nAda yang bisa *mierebus-bot* bantu?\n\n";
+   return "\nHai!\nAda yang bisa kami bantu?\n\n";
  };
 
  this.headerBeritaTerbaru = function(){
-   return "Dari kami khusus untuk kamu, ini 10 berita terbaru hari ini :\n\n";
+   return "Dari kami khusus untuk kamu, ini 5 berita terbaru hari ini :\n\n";
  };
 
  this.footerBeritaTerbaru = function(){
@@ -58,7 +63,7 @@ this.cekFrontOffice =  function(){
  };
 
  this.footerDefault = function(){
-   return "\n\nJangan lupa simpan nomor ini dan kunjungi website kami\n\n Salam hangat timesindonesia.co.id :D\n";
+   return "\n\nJangan lupa follow instagram kami di @timesindonesia, facebook kami di @timesindonesia.co.id, youtube kami di @timestv dan twitter di @timescoid\n";
  };
  
 }
