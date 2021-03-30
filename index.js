@@ -179,10 +179,11 @@ client.on('message', message => {
           var hasil="";
           var res = await mainyuk();
           var i=0;
-              for(i=0;i<10;i++){
-                  hasil += res.items[i].title + ':' + res.items[i].link+"\n";
+              for(i=0;i<5;i++){
+                  hasil = res.items[i].title + ':' + res.items[i].link+"\n";
+		  message.reply(hasil);
               }
-              message.reply(hasil);
+              
           })()
        }
         }); 
