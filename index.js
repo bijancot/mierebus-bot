@@ -12,6 +12,7 @@ const client = new Client();
 const port = 3000;
 const number = [62895326927698,6285238909939];
 let Parser = require('rss-parser');
+const { SSL_OP_EPHEMERAL_RSA } = require('constants');
 let parser = new Parser();
 
 
@@ -67,9 +68,34 @@ client.on('message', message => {
             message.reply(balas);
 
         }else if(message.body == 'ekoran terbaru' || message.body == 'eKoran Terbaru' || message.body == 2){
-            pesanEkoran = ekoran()+'\n'+footerDefault();
-            message.reply(pesanEkoran);
-            console.log(message.body)
+            // pesanEkoran = ekoran()+'\n'+footerDefault();
+            // message.reply(pesanEkoran);
+            // console.log(message.body)
+
+            const getNewsa = async () =>{
+              let feed = await parser.parseURL('https://www.timesindonesia.co.id/feed/ekoran');
+              return feed;
+  
+          }
+          
+          const mainyuka = async () =>{
+              const result = await getNewsa();
+              return result;
+          }
+          (async () => {
+            var hasil="";
+            var res = await mainyuka();
+            var i=0;
+
+            client.sendMessage(message.from,ekoran());
+            
+                for(i=0;i<5;i++){
+                    hasil = res.items[i].title + ':' + res.items[i].link+"\n";
+                    client.sendMessage(message.from, hasil);
+                }
+                
+            })()
+            client.sendMessage(message.from,footerDefault());
 
         }else if(message.body == 'kopitimes' || message.body == 'Kopitimes' || message.body == 3){
             pesanKopi = kopitimes()+'\n'+footerDefault();
