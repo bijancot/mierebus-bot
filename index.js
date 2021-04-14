@@ -68,23 +68,20 @@ client.on('message', message => {
             message.reply(balas);
 
         }else if(message.body == 'ekoran terbaru' || message.body == 'eKoran Terbaru' || message.body == 2){
-            // pesanEkoran = ekoran()+'\n'+footerDefault();
-            // message.reply(pesanEkoran);
-            // console.log(message.body)
-
-            const getNewsa = async () =>{
+            
+          const getKoran = async () =>{
               let feed = await parser.parseURL('https://www.timesindonesia.co.id/feed/ekoran');
               return feed;
   
           }
           
-          const mainyuka = async () =>{
-              const result = await getNewsa();
+          const bacaKoran = async () =>{
+              const result = await getKoran();
               return result;
           }
           (async () => {
             var hasil="";
-            var res = await mainyuka();
+            var res = await bacaKoran();
             var i=0;
 
             client.sendMessage(message.from,ekoran());
@@ -98,9 +95,31 @@ client.on('message', message => {
             client.sendMessage(message.from,footerDefault());
 
         }else if(message.body == 'kopitimes' || message.body == 'Kopitimes' || message.body == 3){
-            pesanKopi = kopitimes()+'\n'+footerDefault();
-            message.reply(pesanKopi);
-            console.log(message.body)
+
+            const getKopi = async () =>{
+              let feed = await parser.parseURL('https://www.timesindonesia.co.id/all/kopi-times');
+              return feed;
+  
+          }
+          
+          const kopiTumpah = async () =>{
+              const result = await getKopi();
+              return result;
+          }
+          (async () => {
+            var hasil="";
+            var res = await kopiTumpah();
+            var i=0;
+
+            client.sendMessage(message.from,kopitimes());
+            
+                for(i=0;i<5;i++){
+                    hasil = res.items[i].title + ':' + res.items[i].link+"\n";
+                    client.sendMessage(message.from, hasil);
+                }
+                
+            })()
+            client.sendMessage(message.from,footerDefault());
       
         } else if(message.body == 'AJP' || message.body == 'ajp' || message.body == 4){
           daftarLink = "link isi form ajp";
