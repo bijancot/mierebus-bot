@@ -97,7 +97,7 @@ client.on('message', message => {
         }else if(message.body == 'kopitimes' || message.body == 'Kopitimes' || message.body == 3){
 
             const getKopi = async () =>{
-              let feed = await parser.parseURL('https://www.timesindonesia.co.id/all/kopi-times');
+              let feed = await parser.parseURL('https://www.timesindonesia.co.id/feed/all/kopi-times');
               return feed;
   
           }
@@ -122,20 +122,23 @@ client.on('message', message => {
             client.sendMessage(message.from,footerDefault());
       
         } else if(message.body == 'AJP' || message.body == 'ajp' || message.body == 4){
-          daftarLink = "link isi form ajp";
-          balas = daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          daftar = "Silahkan mengisi link berikut ini\n\n";
+          daftarLink = "https://forms.gle/AjYKSXaDnsnoWwBPA";
+          balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
 
         }else if(message.body == 'DJ' || message.body == 'dj' || message.body == 5){
-          daftarLink = "link isi form dj";
-          balas = daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          daftar = "Silahkan mengisi link berikut ini\n\n";
+          daftarLink = "https://forms.gle/uLwhWs6E1VS1S79w7";
+          balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
 
         }else if(message.body == 'BISA (Indonesia Bangkit)' || message.body == 'BISA' || message.body == 'bisa'  || message.body == 6){
-          daftarLink = "link isi form";
-          balas = daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
+          daftar = "Silahkan mengisi link berikut ini\n\n";
+          daftarLink = "https://forms.gle/t8MeVvYG2DnMVhK88";
+          balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
         }
@@ -165,8 +168,8 @@ client.on('message', message => {
 
 
         else if(message.body == 'Kontak' || message.body == 'kontak' || message.body == 10){
-            cp = "0341563566"; 
-            kontak = kontakMarketing()+'\n'+cp+'\n\n'+footerBeritaTerbaru();
+            // cp = "0341563566"; 
+            kontak = kontakMarketing()+'\n\n'+footerBeritaTerbaru();
             message.reply(kontak);
 
         }

@@ -10,7 +10,7 @@ this.ekoran = function() { //Menu langganan e-koran
 
 
 this.kopitimes = function() { //Menu langganan e-koran
-   return 'Dari kami khusus untuk kamu, ini 5 eKoran terbaru hari ini :\n\n'
+   return 'Dari kami khusus untuk kamu, ini 5 Kopitimes terbaru hari ini :\n\n'
 };
 
 //submenu langganan daftar
@@ -27,7 +27,7 @@ this.iklan = function(){ // Menu iklan
    return 'Yuk, Beriklan bersama kami. Untuk memulai silahkan pilih menu dibawah ini : \n\n6. Info Kontak Marketing (Kontak)\n7.  Cek Front Office TIMES Indonesia (Front office).\n\n'
    }; 
 this.kontakMarketing =  function(){
-   return 'halo, untuk memasang iklan silahkan hubungi kontak marketing kami dibawah ini\n'
+   return 'halo, untuk memasang iklan silahkan hubungi kontak marketing kami dibawah ini\n\nTelp/Fax. (+62) 21 21 394 119 / WA-Telegram Direct: +6281233452700\n'
    }; 
 this.cekFrontOffice =  function(){
    return 'Halo ini adalah Front Office TIMES Indonesia\n\n'
