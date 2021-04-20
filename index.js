@@ -123,21 +123,21 @@ client.on('message', message => {
       
         } else if(message.body == 'AJP' || message.body == 'ajp' || message.body == 4){
           daftar = "Silahkan mengisi link berikut ini\n\n";
-          daftarLink = "https://forms.gle/AjYKSXaDnsnoWwBPA";
+          daftarLink = "https://s.id/TIMES-AJP";
           balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
 
         }else if(message.body == 'DJ' || message.body == 'dj' || message.body == 5){
           daftar = "Silahkan mengisi link berikut ini\n\n";
-          daftarLink = "https://forms.gle/uLwhWs6E1VS1S79w7";
+          daftarLink = "https://s.id/TIMES-DJ";
           balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
 
         }else if(message.body == 'BISA (Indonesia Bangkit)' || message.body == 'BISA' || message.body == 'bisa'  || message.body == 6){
           daftar = "Silahkan mengisi link berikut ini\n\n";
-          daftarLink = "https://forms.gle/t8MeVvYG2DnMVhK88";
+          daftarLink = "https://s.id/TIMES-BISA";
           balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
