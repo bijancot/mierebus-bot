@@ -130,7 +130,7 @@ client.on('message', message => {
 
         }else if(message.body == 'DJ' || message.body == 'dj' || message.body == 5){
           daftar = "Silahkan mengisi link berikut ini\n\n";
-          daftarLink = "https://s.id/TIMES-DJ";
+          daftarLink = "https://s.id/TIMES-Dj";
           balas = daftar+daftarLink +'\n\n99. Kembali ke menu awal.\n\n';
           message.reply(balas);
           console.log(message.body);
